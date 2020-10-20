@@ -1,10 +1,11 @@
 package entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Village {
+public class Village implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
