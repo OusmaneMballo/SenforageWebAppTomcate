@@ -2,11 +2,13 @@ package dao;
 
 import entities.User;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
+@Stateless
 public class UserDAO implements IUser{
 
     private EntityManager em;

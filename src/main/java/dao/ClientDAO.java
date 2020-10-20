@@ -2,8 +2,10 @@ package dao;
 
 import entities.Client;
 
+import javax.ejb.Stateless;
 import java.util.List;
 
+@Stateless
 public class ClientDAO implements IClient {
 
     @Override

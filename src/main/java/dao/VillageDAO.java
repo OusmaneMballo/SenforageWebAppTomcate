@@ -2,8 +2,10 @@ package dao;
 
 import entities.Village;
 
+import javax.ejb.Stateless;
 import java.util.List;
 
+@Stateless
 public class VillageDAO implements IVillage {
     @Override
     public List<Village> findAll() {

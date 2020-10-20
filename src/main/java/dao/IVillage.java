@@ -2,8 +2,10 @@ package dao;
 
 import entities.Village;
 
+import javax.ejb.Local;
 import java.util.List;
 
+@Local
 public interface IVillage {
     public List<Village> findAll();
     public int add(Village v);
