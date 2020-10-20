@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@tag description="Layout" isELIgnored="false" pageEncoding="UTF-8"%>
 <%@attribute name="title"%>
 <%@attribute name="body_area" fragment="true" %>
@@ -22,10 +23,10 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion Abonnement</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Clients</a>
+                            <a href="<c:url value="client"></c:url>">Clients</a>
                         </li>
                         <li>
-                            <a href="#">Villages</a>
+                            <a href="<c:url value="village"></c:url>">Villages</a>
                         </li>
                     </ul>
                 </li>
@@ -47,7 +48,7 @@
 
             <div class="footer">
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://github.com/OusmaneMballo" target="_blank">Github ousmane MBALLO</a>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://github.com/OusmaneMballo " target="_blank">Github ousmane MBALLO</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
 
