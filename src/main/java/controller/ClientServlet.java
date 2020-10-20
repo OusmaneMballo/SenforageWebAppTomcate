@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ClientServlet")
+@WebServlet(name = "ClientServlet", urlPatterns = "/client")
 public class ClientServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+            getServletContext().getRequestDispatcher("/WEB-INF/client/index.jsp").forward(request, response);
+        //response.getWriter().println("Good! ClientServlet!");
     }
 }
