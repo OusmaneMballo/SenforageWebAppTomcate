@@ -18,32 +18,37 @@
     <nav id="sidebar">
         <div class="p-4 pt-5">
             <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(${pageContext.request.contextPath}/template/images/logo.jpg);"></a>
+            <p>Vous êtes ${ sessionScope.prenom } ${ sessionScope.nom } !</p>
             <ul class="list-unstyled components mb-5">
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion Abonnement</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="<c:url value="client"></c:url>">Clients</a>
-                        </li>
-                        <li>
-                            <a href="<c:url value="village"></c:url>">Villages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administration</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Caissiers</a>
-                        </li>
-                        <li>
-                            <a href="#">Compteurs</a>
-                        </li>
-                        <li>
-                            <a href="#">Facturation</a>
-                        </li>
-                    </ul>
-                </li>
+                <c:if test="${ sessionScope.role=='Caissier' }">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion Abonnement</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="<c:url value="client"></c:url>">Clients</a>
+                            </li>
+                            <li>
+                                <a href="<c:url value="village"></c:url>">Villages</a>
+                            </li>
+                        </ul>
+                    </li>
+                </c:if>
+                <c:if test="${ sessionScope.role=='Admin' }">
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administration</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#">Caissiers</a>
+                            </li>
+                            <li>
+                                <a href="#">Compteurs</a>
+                            </li>
+                            <li>
+                                <a href="#">Facturation</a>
+                            </li>
+                        </ul>
+                    </li>
+                </c:if>
             </ul>
 
             <div class="footer">

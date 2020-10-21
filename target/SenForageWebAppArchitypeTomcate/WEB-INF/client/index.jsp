@@ -12,7 +12,7 @@
     <jsp:attribute name="body_area">
         <div class="card text-center">
             <div class="card-header">
-                Espace village
+                Espace Clients
             </div>
             <div class="card-body">
                 <div class="row">

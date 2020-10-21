@@ -1,56 +1,53 @@
 package dao;
 
+import Util.HibernateUtil;
 import entities.User;
+import org.hibernate.Session;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.List;
 
 @Stateless
 public class UserDAO implements IUser{
 
-    private EntityManager em;
-
+    Session session;
 
     public UserDAO() {
-        EntityManagerFactory emf= Persistence.createEntityManagerFactory("GesForagePU");
-        em=emf.createEntityManager();
+       session= HibernateUtil.getSession();
     }
 
     @Override
     public List<User> findAll() {
-        return em.createQuery("SELECT u from User u").getResultList();
-        //return null;
+        return session.createQuery("select u from User u", User.class).list();
     }
 
     @Override
     public int add(User u) {
-
         try{
-            em.persist(u);
+            session.save(u);
             return 1;
         }catch (Exception exception){
-            exception.getStackTrace();
+            return 0;
         }
-
-        return 0;
     }
 
     @Override
     public User findById(int id) {
-        return em.find(User.class, id);
-        //return null;
+        return session.find(User.class, id);
+    }
+
+    @Override
+    public User findByLoginPasswd(String login, String passwd) {
+        return session.createQuery("select u from User u where u.login=:login and u.passwd=:passwd",
+                User.class).setParameter("login",login).setParameter("passwd", passwd).getSingleResult();
     }
 
     @Override
     public void delete(User user) {
-        try{
-            em.remove(user);
-        }catch (Exception exception){
+        try {
+
+        }catch(Exception exception){
             exception.getStackTrace();
         }
-
     }
 }
