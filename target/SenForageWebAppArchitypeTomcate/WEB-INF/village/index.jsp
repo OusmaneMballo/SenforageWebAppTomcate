@@ -41,7 +41,17 @@
                             <c:forEach items="${villages}" var="village">
                                 <tr>
                                     <th scope="col">${village.nom}</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">
+                                        <a href="<c:url value="village"></c:url>">
+                                            <button type="button" class="btn btn-outline-info">Details</button>
+                                        </a>
+                                        <a href="<c:url value="village"></c:url>">
+                                            <button type="button" class="btn btn-outline-warning">Edit</button>
+                                        </a>
+                                        <a href="<c:url value="village"></c:url>">
+                                            <button type="button" class="btn btn-outline-danger">Supprimer</button>
+                                        </a>
+                                    </th>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -50,7 +60,7 @@
                 </div>
             </div>
             <div class="card-footer text-muted">
-                2 days ago
+                &lt;/mballoS&gt;  Developpeur Java Php full-stack, Integrateur solutions CLOUD
             </div>
         </div>
 </jsp:attribute>

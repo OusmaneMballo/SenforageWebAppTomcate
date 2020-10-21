@@ -31,8 +31,7 @@ public class VillageServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //getServletContext().getRequestDispatcher("/WEB-INF/village/index.jsp").forward(request, response);
-        //response.getWriter().println("Good! ClientServlet!");
+
         String action=request.getParameter("action");
         if(action!=null){
             switch (action){
