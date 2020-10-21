@@ -4,4 +4,8 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <session-config>
+    <session-timeout>25</session-timeout>
+    <!--La session est detruite apres 25mn d'inactivite-->
+  </session-config>
 </web-app>

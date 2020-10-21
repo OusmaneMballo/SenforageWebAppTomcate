@@ -18,7 +18,8 @@
     <nav id="sidebar">
         <div class="p-4 pt-5">
             <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(${pageContext.request.contextPath}/template/images/logo.jpg);"></a>
-            <p>Vous êtes ${ sessionScope.prenom } ${ sessionScope.nom } !</p>
+            <p>${ sessionScope.prenom } ${ sessionScope.nom }</p>
+            <p class="components mb-5"><a href="<c:url value="deconnexion"></c:url>">Deconnexion</a></p>
             <ul class="list-unstyled components mb-5">
                 <c:if test="${ sessionScope.role=='Caissier' }">
                     <li class="active">

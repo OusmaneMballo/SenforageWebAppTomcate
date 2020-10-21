@@ -1,7 +1,6 @@
 package controller;
 
-import dao.IUser;
-import dao.UserDAO;
+import dao.*;
 import entities.Client;
 import entities.User;
 import entities.Village;
@@ -23,6 +22,12 @@ public class UserServlet extends HttpServlet {
     @EJB
     private IUser userdao =new UserDAO();
 
+    @EJB
+    private IClient clientdao=new ClientDAO();
+
+    @EJB
+    private IVillage villagedao=new VillageDAO();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User u=new User();
         u=userdao.findByLoginPasswd(request.getParameter("login"), request.getParameter("passwd"));
@@ -31,6 +36,8 @@ public class UserServlet extends HttpServlet {
             session.setAttribute("nom", u.getNom());
             session.setAttribute("email", u.getEmail());
             session.setAttribute("role", u.getRole().getLibelle());
+            request.setAttribute("clients", clientdao.findAll());
+            request.setAttribute("villages", villagedao.findAll());
             getServletContext().getRequestDispatcher("/WEB-INF/client/index.jsp").forward(request, response);
         }
         else {
@@ -42,8 +49,7 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //response.getWriter().println("okey1");
-        getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
-
+        getServletContext().getRequestDispatcher("index.jsp").forward(request, response);
 
     }
 }
